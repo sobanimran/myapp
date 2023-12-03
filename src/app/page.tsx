@@ -1,95 +1,65 @@
-import Image from 'next/image'
+"use client"
+import { useState } from 'react'
 import styles from './page.module.css'
+import Link from 'next/link'
+import Nav from './component/link'
+import { useRouter } from 'next/navigation'
+import Page from './page.module.css'
+import './globals.css'
+import Image from 'next/image'
+import { Roboto } from 'next/font/google'
+
+const roboto = Roboto({
+  weight:'100',
+  subsets : ['latin'],
+  display:'swap'
+})
 
 export default function Home() {
+ 
+  //const [name,setName] = useState('ali')
+  let name = 'ali'
+  const apple = (namr:string)=>{
+    name = namr
+    console.log(name)
+    //setName(namr)
+    
+  }
+  const {red} = styles
+  const [col,setCol] = useState("red")
+
+  // component in component
+  const User = (props:any) =>  {
+      return(
+        <div>
+         <h1 className={roboto.className}>font with next js font</h1>
+          <h1 className={Page.hed}>i am {props.name + ' ' + props.fname}</h1>
+          <p style={{backgroundColor:col==="red"?"brown":'yellow'}}>conditional statement</p>
+          <h2 style={{fontFamily:"roboto" }} className={red}>heding 2</h2>
+          <h2 style={{}} className={red}>heding 2</h2>
+          <h2 style={{fontFamily:"roboto" , fontWeight:100}} className={red}>heding 2</h2>
+          <h2 style={{fontFamily:"roboto" , fontWeight:100}} className={red}>heding 2</h2>
+        <button onClick={()=>setCol("change")}>update state</button>
+        </div>
+      )
+    }
+
+
+
+
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <Link href="/productlist">go to product page</Link><br />
+      <Link href="/productserverli">go to product page server</Link>
+    
+      <User name="soban" fname="shahid" />
+     <h1>home page {name}</h1>
+     <button onClick={() => apple('boy')}> click me </button>
+     <Image src="https://wallpapercave.com/wp/wp2665214.jpg" width={200} height={200} alt='senree' style={{marginRight:"10px"}}/> 
+    
     </main>
+
   )
-}
+  }
+ 
+//export {User}; 

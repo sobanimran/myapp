@@ -1,0 +1,9 @@
+.hed{
+    font-size: 32px;
+    font-weight: 400;
+    color: blueviolet;
+    background-color: aqua;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 4px 5px gray;
+}
