@@ -1,6 +1,6 @@
 
 
-export default function Notfout() {
+export default function Notfoud() {
   return (
     <div>not-fount</div>
   )

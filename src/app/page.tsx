@@ -2,12 +2,13 @@
 import { useState } from 'react'
 import styles from './page.module.css'
 import Link from 'next/link'
-import Nav from './component/link'
+
 import { useRouter } from 'next/navigation'
 import Page from './page.module.css'
 import './globals.css'
 import Image from 'next/image'
 import { Roboto } from 'next/font/google'
+
 
 const roboto = Roboto({
   weight:'100',
@@ -56,7 +57,7 @@ export default function Home() {
      <h1>home page {name}</h1>
      <button onClick={() => apple('boy')}> click me </button>
      <Image src="https://wallpapercave.com/wp/wp2665214.jpg" width={200} height={200} alt='senree' style={{marginRight:"10px"}}/> 
-    
+   
     </main>
 
   )
